@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-export const GeneratorButton = ({setCurrentJoke}) => {
-    const Button = styled.button`
-        background-color: #fff000;
+export const DadJoke = ({joke}) => {
+    const DadJoke = styled.blockquote`
         border: 2px solid #000;
         width: 100%;
         max-width: 500px;
@@ -12,6 +11,6 @@ export const GeneratorButton = ({setCurrentJoke}) => {
     `;
 
     return (
-        <Button onClick={() => setCurrentJoke('Another dad joke.')}>Tell me a dad joke.</Button>
+        <DadJoke>{joke}</DadJoke>
     );
 };
