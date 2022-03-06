@@ -2,7 +2,7 @@ import { Generator } from './Generator';
 import axios from 'axios';
 import { useState } from 'react';
 
-export const Main = () => {
+export const Home = () => {
     const [ currentJoke, setJoke ] = useState({joke: '', id: ''});
     const updateJoke = async () => {
         const joke = await axios
@@ -13,8 +13,6 @@ export const Main = () => {
     }
 
     return (
-        <main>
-            <Generator currentJoke={currentJoke} updateJoke={updateJoke} />
-        </main>
+        <Generator currentJoke={currentJoke} updateJoke={updateJoke} />
     );
 };

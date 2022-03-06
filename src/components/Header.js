@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styledComponents from "styled-components";
 
 export const Header = () => {
@@ -19,8 +20,8 @@ export const Header = () => {
         <Header>
             <nav>
                 <ul>
-                    <li>Home</li>
-                    <li>Favorites</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/favorites">Favorites</Link></li>
                 </ul>
             </nav>
         </Header>
