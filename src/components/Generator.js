@@ -1,14 +1,11 @@
 import { DadJoke } from './DadJoke';
 import { GeneratorButton } from './GeneratorButton';
-import { useState } from 'react';
 
-export const Generator = () => {
-    const [ currentJoke, setJoke ] = useState('');
-
+export const Generator = ({currentJoke, updateJoke}) => {
     return (
         <section>
-            <GeneratorButton setCurrentJoke={setJoke} />
-            <DadJoke joke={currentJoke} />
+            <GeneratorButton setCurrentJoke={updateJoke} />
+            <DadJoke currentJoke={currentJoke} />
         </section>
     );
 }

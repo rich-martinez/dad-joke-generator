@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DadJoke = ({joke}) => {
+export const DadJoke = ({currentJoke: {joke}}) => {
     const DadJoke = styled.blockquote`
         border: 2px solid #000;
         width: 100%;

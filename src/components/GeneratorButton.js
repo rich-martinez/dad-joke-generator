@@ -12,6 +12,6 @@ export const GeneratorButton = ({setCurrentJoke}) => {
     `;
 
     return (
-        <Button onClick={() => setCurrentJoke('Another dad joke.')}>Tell me a dad joke.</Button>
+        <Button onClick={() => setCurrentJoke()}>Tell me a dad joke.</Button>
     );
 };
