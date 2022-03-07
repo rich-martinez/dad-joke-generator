@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { DadJoke } from './DadJoke';
+import { Page } from './Page';
 
 export const Home = () => {
     const [ currentJoke, setJoke ] = useState({joke: null, id: null});
@@ -13,6 +14,9 @@ export const Home = () => {
     }
 
     return (
-        <DadJoke currentJoke={currentJoke} updateJoke={updateJoke} />
+        <Page 
+            title="Dad Jokes" 
+            content={<DadJoke currentJoke={currentJoke} updateJoke={updateJoke} />} 
+        />
     );
 };

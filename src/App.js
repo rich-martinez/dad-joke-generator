@@ -14,14 +14,10 @@ const App = () => {
   return (
     <App>
       <Header />
-      <main>
-        <h1>Dad Jokes</h1>
-        <Routes>
-            <Route path="/" element={<Home />}>
-              <Route path="favorites" element={<Favorites />} />
-            </Route>
-        </Routes>
-      </main>
+      <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="favorites" element={<Favorites />}></Route>
+      </Routes>
     </App>
   );
 };
