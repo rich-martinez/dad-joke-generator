@@ -3,7 +3,7 @@ import styledComponents from "styled-components";
 
 export const Header = () => {
     const Header = styledComponents.header`
-        background-color: #aabbcc;
+        background-color: #F4A261;
         font-weight: bold;
         padding: 1rem;
 
