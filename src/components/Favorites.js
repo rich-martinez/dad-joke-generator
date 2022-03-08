@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import { Page } from "./Page";
 import styled from 'styled-components';
+import { useLocalStorage } from "../useLocalStorage";
 
 
 export const Favorites = () => {
@@ -15,34 +15,16 @@ export const Favorites = () => {
         cursor: pointer;
         grid-column-start: 1;
     `;
+    const Article = styled.article`
+        background-color: grey;
+    `;
 
-    const favoriteJokesStorage = localStorage.getItem('favorite-jokes');
-    const favoriteJokes = typeof favoriteJokesStorage === 'string' ? JSON.parse(favoriteJokesStorage) : {};
-    const favoriteJokeValues = Object.values(favoriteJokes);
-    const clearFavoritesStorage = () => {
-        localStorage.removeItem('favorite-jokes');
-    };
-
-    const [currentJokes, setFavoriteJokes] = useState(favoriteJokeValues);
-
-    const jokes = Array.isArray(currentJokes) ? currentJokes : [];
-
-    useEffect(() => {    
-        window.addEventListener('storage', clearFavoritesStorage);
+    const favoritJokesInitialValue = {};
     
-        return () => {
-            window.removeEventListener('storage', clearFavoritesStorage);
-        };
-    }, [currentJokes]);
-    
-    const updatedJokes = jokes.map((joke, index) => {
-        const Article = styled.article`
-            background-color: grey;
-        `;
-        
+    const [value, setValue] = useLocalStorage('favorite-jokes', favoritJokesInitialValue);
+    const updatedJokes = Object.values(value).map((joke, index) => {        
         return (<Article key={index}>{joke}</Article>);
     });
-
 
     return (
         <Page
@@ -50,7 +32,7 @@ export const Favorites = () => {
             content={
                 <ArticleContainer>
                     {updatedJokes}
-                    <ClearFavoritesButton onClick={setFavoriteJokes}>Clear Favorites</ClearFavoritesButton>
+                    <ClearFavoritesButton onClick={() => setValue(favoritJokesInitialValue)}>Clear Favorites</ClearFavoritesButton>
                 </ArticleContainer>
             }
         />
